@@ -1,0 +1,8 @@
+HttpHeaders headers = new HttpHeaders();
+headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+headers.set("X-COM-PERSIST", "NO");
+headers.set("X-COM-LOCATION", "USA");
+
+HttpEntity<String> entity = new HttpEntity<String>(headers);
+
+ResponseEntity<User[]> responseEntity = restTemplate.exchange("/users", HttpMethod.GET, entity, User[].class);
